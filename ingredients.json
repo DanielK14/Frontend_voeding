@@ -1,0 +1,38 @@
+{
+    "Array": [
+        {
+            "Id": "0",
+            "Naam": "Apple",
+            "VoedingswaardeId": "1",
+            "VitaminenId": "1",
+            "MineralenId": "1",
+            "Beschrijving": "Apple a day..."
+
+        },
+        {
+            "Id": "1",
+            "Naam": "Banaan",
+            "VoedingswaardeId": "1",
+            "VitaminenId": "1",
+            "MineralenId": "1",
+            "Beschrijving": "Bananarama"
+        },
+        {
+            "Id": "2",
+            "Naam": "YoghurtHV",
+            "VoedingswaardeId": "1",
+            "VitaminenId": "1",
+            "MineralenId": "1",
+            "Beschrijving": "Halfvolle yoghurt."
+
+        },
+        {
+            "Id": "3",
+            "Naam": "Notenmix",
+            "VoedingswaardeId": "1",
+            "VitaminenId": "1",
+            "MineralenId": "1",
+            "Beschrijving": "Notenmix"
+        }
+    ]
+}
