@@ -1,0 +1,83 @@
+.container
+{
+    width: 1024px; 
+    padding: 5px;
+    position: relative;
+    margin: 0 auto;
+
+}
+
+.formContainer
+{   
+    height: 400px;
+    width: 500px;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 25px;
+    display:inline-block;
+}
+
+#voedingswaarden
+{
+    width: 500px;
+    height: 400px;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 25px;
+    display: inline-block;
+    top: 60px;
+    position: absolute;
+    right: 5px;
+}
+
+.inputField, .textfield
+{   
+    width: 50px;
+    border: 0px;
+    background-color:#dae5ef;
+    height: 38px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.textfield
+{   
+    width: 310px;
+    margin-bottom: 15px;
+}
+
+#submit
+{
+    margin: 10px;
+    width: 460px;
+    background-color: #dae5ef;
+    border-radius: 10px;
+}
+
+label
+{
+    margin-top:5px;
+    display:flex;
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+label > div
+{
+    width: 310px;
+    display:flex;
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+.viewButton
+{
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    text-decoration: #555;
+    background-color: #dae5ef;
+    border-radius: 5px;
+}
