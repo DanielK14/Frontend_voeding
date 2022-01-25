@@ -6,50 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../style.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> 
     <title>Homepage</title>
     <script type="module" src="../index.js"></script>
 </head>
 <body>
-    <h1>Recepten toevoegen</h1>
-    <div>
-        <label>Gerecht naam:
-            <input id="Gerecht naam" placeholder="Geef het gerecht een naam">
-        </label><br>
-        <label>Gerecht omschrijving
-            <input id="Gerecht omschrijving" placeholder="Geef het gerecht een omschrijving(optioneel)">
-        </label><br>
-        
-        
-        <label>Ingredient 1
-            <vaadin-combo-box id="ingredient-combo1" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
-            <input id="gewicht1" class="gewicht" name="Gewicht" placeholder="Voer het gewicht in">
-        </label><br>
-        
-        <label>Ingredient 2
-            <vaadin-combo-box id="ingredient-combo2" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
-            <input id="gewicht2" name="Gewicht" placeholder="Voer het gewicht in">
-        </label><br>
+    <div class="container">
+        <h1>Recepten toevoegen</h1>
+        <div class="formContainer">
+            <label class="textFieldLabel">
+                <p>Gerecht naam</p>
+                <input id="Gerecht naam"  class="textfield" placeholder="Geef het gerecht een naam">
+            </label>
 
-        
-        <label>Ingredient 3
-            <vaadin-combo-box id="ingredient-combo3" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
-            <input id="gewicht3" name="Gewicht" placeholder="Voer het gewicht in">
-        </label><br>
-        
-        <label>Ingredient 4
-            <vaadin-combo-box id="ingredient-combo4" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
-            <input id="gewicht4" name="Gewicht" placeholder="Voer het gewicht in">
-        </label><br>
-        
-        <label>Ingredient 5
-            <vaadin-combo-box id="ingredient-combo5" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
-            <input id="gewicht4" name="Gewicht" placeholder="Voer het gewicht in">
-        </label><br>
-        
-        <button id="submit" type="submit">Sla nu op</button>
+            <label class="textFieldLabel">
+                <p>Omschrijving</p>
+                <input id="Omschrijving"  class="textfield" placeholder="Vul een omschrijving in(optioneel)">
+            </label>
+
+            <label>Ingredient 1
+                <div>
+                    <vaadin-combo-box id="ingredient-combo1" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+                    <input id="gewicht1" class="gewicht inputField" name="Gewicht" placeholder="0 gr">
+                    <div class="viewButton" id="ingredient1field">
+                        >
+                    </div>
+                </div>
+            </label>
+            
+            <label>Ingredient 2
+                <div>
+                    <vaadin-combo-box id="ingredient-combo2" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+                    <input id="gewicht2" class="gewicht inputField" name="Gewicht " placeholder="0 gr">
+                    <div class="viewButton" id="ingredient2field">
+                        >
+                    </div>
+                </div>
+            </label>
+
+            <label>Ingredient 3
+                <div>
+                    <vaadin-combo-box id="ingredient-combo3" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+                    <input id="gewicht3" class="gewicht inputField" name="Gewicht" placeholder="0 gr">
+                    <div class="viewButton" id="ingredient3field">
+                        >
+                    </div>
+                </div>
+            </label>
+            
+            <label>Ingredient 4
+                <div>
+                    <vaadin-combo-box id="ingredient-combo4" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+                    <input id="gewicht4" class="gewicht inputField" name="Gewicht" placeholder="0 gr">
+                    <div class="viewButton" id="ingredient4field">
+                        >
+                    </div>
+                </div>
+            </label>
+            
+            <label>Ingredient 5
+                <div>
+                    <vaadin-combo-box id="ingredient-combo5" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+                    <input id="gewicht4" class="gewicht inputField" name="Gewicht" placeholder="0 gr">
+                    <div class="viewButton" id="ingredient5field">
+                        >
+                    </div>
+                </div>
+            </label>
+            
+            <button id="submit" type="submit">Sla nu op</button>
+        </div>
+        <div id="voedingswaarden">hoi</div>
     </div>
 
 
