@@ -14,27 +14,44 @@
 </head>
 <body>
     <h1>Recepten toevoegen</h1>
-    <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-    </div>
-    <form>
+    <div>
         <label>Gerecht naam:
-            <input name="Gerecht naam" placeholder="Geef het gerecht een naam">
+            <input id="Gerecht naam" placeholder="Geef het gerecht een naam">
         </label><br>
         <label>Gerecht omschrijving
-            <input name="Gerecht omschrijving" placeholder="Geef het gerecht een omschrijving(optioneel)">
+            <input id="Gerecht omschrijving" placeholder="Geef het gerecht een omschrijving(optioneel)">
         </label><br>
         
+        
         <label>Ingredient 1
-            <input name="Ingredient 1" placeholder="Voer een ingredient in"><input class="gewicht" name="Gewicht" placeholder="Voer het gewicht in">
+            <vaadin-combo-box id="ingredient-combo1" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+            <input id="gewicht1" class="gewicht" name="Gewicht" placeholder="Voer het gewicht in">
         </label><br>
         
         <label>Ingredient 2
-            <input name="Ingredient 2" placeholder="Voer een ingredient in"><input class="gewicht" name="Gewicht" placeholder="Voer het gewicht in">
+            <vaadin-combo-box id="ingredient-combo2" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+            <input id="gewicht2" name="Gewicht" placeholder="Voer het gewicht in">
         </label><br>
-        <button type="submit">Sla op</button>
-    </form>
 
-    <vaadin-combo-box id="ingredient-combo" label="User" placeholder="Please select" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+        
+        <label>Ingredient 3
+            <vaadin-combo-box id="ingredient-combo3" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+            <input id="gewicht3" name="Gewicht" placeholder="Voer het gewicht in">
+        </label><br>
+        
+        <label>Ingredient 4
+            <vaadin-combo-box id="ingredient-combo4" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+            <input id="gewicht4" name="Gewicht" placeholder="Voer het gewicht in">
+        </label><br>
+        
+        <label>Ingredient 5
+            <vaadin-combo-box id="ingredient-combo5" placeholder="Kies een ingredient" item-value-path="ingredient" item-label-path="ingredient"></vaadin-combo-box>
+            <input id="gewicht4" name="Gewicht" placeholder="Voer het gewicht in">
+        </label><br>
+        
+        <button id="submit" type="submit">Sla nu op</button>
+    </div>
+
+
 </body>
 </html>
