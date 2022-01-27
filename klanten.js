@@ -121,7 +121,7 @@ function UpdateClient(){
     const linkToUpdate = "http://localhost:8082/update/";
     const emptyString = "";
     const fullLink = emptyString.concat(linkToUpdate, identification);
- 
+    
     console.log(fullLink);
     fetch(fullLink, {
         method: 'PUT',
