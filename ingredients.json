@@ -2,7 +2,7 @@
     "Array": [
         {
             "Id": "0",
-            "Naam": "Apple",
+            "Naam": "Appel",
             "VoedingswaardeId": "1",
             "VitaminenId": "1",
             "MineralenId": "1",
@@ -33,6 +33,22 @@
             "VitaminenId": "1",
             "MineralenId": "1",
             "Beschrijving": "Notenmix"
+        },
+        {
+            "Id": "4",
+            "Naam": "YoghurtV",
+            "VoedingswaardeId": "1",
+            "VitaminenId": "1",
+            "MineralenId": "1",
+            "Beschrijving": "Volle yoghurt"
+        },
+        {
+            "Id": "5",
+            "Naam": "Rozijnen",
+            "VoedingswaardeId": "1",
+            "VitaminenId": "1",
+            "MineralenId": "1",
+            "Beschrijving": "Rozen"
         }
     ]
 }
