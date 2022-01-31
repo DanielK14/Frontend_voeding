@@ -4,15 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script></script>
+    <title>KlantenPage</title>
+</head>
+
+<body>
+    
+    <!-- Here the user can can create his account with every detail-->
+    <h1>Maak hier een account</h1>
+    <div id = "createDiv">
+    <form>
+        <label>Naam:</label>
+            <input id="username" name="Name" placeholder="Voer hier uw naam in">
+        <br>
+
+        <label>Wachtwoord:</label>
+            <input id="password" name="Password" placeholder="Voer hier uw wachtwoord in">
+        <br>
+
+        <label>Geslacht:</label>
+            <select name="Gelsacht" id="sexUser">
+                <option value="True">Man</option>
+                <option value="False">Vrouw</option>
+            </select>
+        <br>
+
+        <label>Leeftijd:</label>
+            <input type="date" id="ageUser" name="birthdaytime">
+        <br>
+
+        <label>Gewicht:</label>
+            <input id="weightUser" name="Weight" placeholder="Voer hier uw gewicht in">
+        <br>
+        
+        <label>Lengte:</label>
+            <input id="lenghtUser" name="Length" placeholder="Voer hier uw lengte in">
+        <br>
+
         
 
-</head>
-<body>
-    <h1>
+        <label>Fitness doel:</label>
+            <input id="fitnessGoal" name="fitnessGoal" placeholder="Voer hier uw fitness doel in">
+        <br>
 
+        <label>Dieët doel:</label>
+            <input id="dietGoal" name="dietGoal" placeholder="Voer hier uw dieët doel in">
+        <br>
 
+        <input id= "createAccount" type="button" value="Sla op"/>
+    </form>
+    </div>
 
+    <h1>Verander hier je gegevens</h1>
+    <div id = "updateDiv">
+    <form>
+        <label>ID:</label>
+            <input id="id" name="identification" placeholder="Voer hier uw passcode">
+        <br>
+
+        <label>Naam:</label>
+            <input id="usernameUpdate" name="Name" placeholder="Voer hier uw naam in">
+        <br>
+
+        <label>Wachtwoord:</label>
+            <input id="passwordUpdate" name="Password" placeholder="Voer hier uw wachtwoord in">
+        <br>
+
+        <label>Geslacht:</label>
+            <select name="Gelsacht" id="sexUserUpdate">
+                <option value="True">Man</option>
+                <option value="False">Vrouw</option>
+            </select>
+        <br>
+
+        <label>Leeftijd:</label>
+            <input type="date" id="ageUserUpdate" name="birthdaytime">
+        <br>
+
+        <label>Gewicht:</label>
+            <input id="weightUserUpdate" name="Weight" placeholder="Voer hier uw gewicht in">
+        <br>
+        
+        <label>Lengte:</label>
+            <input id="lenghtUserUpdate" name="Length" placeholder="Voer hier uw lengte in">
+        <br>
+
+        <label>Fitness doel:</label>
+            <input id="fitnessGoalUpdate" name="fitnessGoal" placeholder="Voer hier uw fitness doel in">
+        <br>
+
+        <label>Dieët doel:</label>
+            <input id="dietGoalUpdate" name="dietGoal" placeholder="Voer hier uw dieët doel in">
+        <br>
+
+        <input id= "updateAccount" type="button" value="Sla op"/>
+    </form>
+    </div>
+
+    <!-- Here the user can see all the clients-->
+    <h1>Bekijk hier alle klanten</h1>
+    <input type="button" id="getClients" value="Laat de klanten zien"/>
+    <table id=clientList></table>
+    
 </body>
+
+<script src="../klanten.js"></script>
 </html>
