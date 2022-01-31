@@ -9,7 +9,7 @@
 
 .formContainer
 {   
-    height: 400px;
+    height: 450px;
     width: 500px;
     background-color: aliceblue;
     padding: 10px;
@@ -17,10 +17,10 @@
     display:inline-block;
 }
 
-#voedingswaarden
+#nutrients
 {
     width: 500px;
-    height: 400px;
+    height: 450px;
     background-color: aliceblue;
     padding: 10px;
     border-radius: 25px;
@@ -49,7 +49,16 @@
 #submit
 {
     margin: 10px;
-    width: 460px;
+    width: 300px;
+    background-color: #dae5ef;
+    border-radius: 10px;
+}
+
+
+#view
+{
+    width: 100px;
+    margin: 10px;
     background-color: #dae5ef;
     border-radius: 10px;
 }
@@ -58,15 +67,15 @@ label
 {
     margin-top:5px;
     display:flex;
-    justify-content: space-between;
+    justify-content:left;
     align-content: stretch;
 }
 
-label > div
+.labelContainer
 {
-    width: 310px;
+    width: 480px;
     display:flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-content: stretch;
 }
 
