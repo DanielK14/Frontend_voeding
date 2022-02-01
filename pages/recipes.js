@@ -20,7 +20,7 @@ let newObject = {Naam:"Nieuw gerecht", omschrijving:"",
 
 async function FetchIngredients ()
 {
-    fetch('/products.json')
+    fetch('products.json')
     .then(response => response.json())
     .then(result => {FillItemLists(result)})
     .catch(err => {document.getElementById("nutrients"). innerHTML = 'The services are currently down please wait a moment or contact our support'});
@@ -153,17 +153,24 @@ async function SaveNutrients()
       body: JSON.stringify(newObject)
     })
     .then(response => response.json())
-    .then(FetchNutrients(document.getElementById("Name").value, 1))
+    .then(data => FetchNutrients(data, -1))
    .catch(err => {document.getElementById("nutrients"). innerHTML = 'Er is iets fout gegaan bij het berekenen'});
 } 
 
 async function FetchNutrients(target, productNumber){
   // Tries to connect to the database with the clients
-  fetch("https://localhost:44309/api/voedingswaarden/findbyname/" + target)
+  let address = "https://localhost:44309/api/voedingswaarden/findbyname/";
+  if(Number.isInteger(target))
+    address = "https://localhost:44309/api/voedingswaarden/findbyid/"
+  fetch(address + target)
  .then(response => response.json())
- .then(data => {
-  SetProduct(data, productNumber);
-  RenderNutrients(data, SetWeight(productNumber));
+ .then(data => {if(productNumber < 0)
+  {
+    RenderNutrients(data,1)
+  } else {
+    SetProduct(data, productNumber);
+    RenderNutrients(data, SetWeight(productNumber))
+  };
   //object2 = data[Object.keys(data)];
   })
  .catch(err => {document.getElementById("nutrients"). innerHTML = 'Geen nutrients gevonden'});
