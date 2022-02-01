@@ -49,16 +49,7 @@
 #submit
 {
     margin: 10px;
-    width: 300px;
-    background-color: #dae5ef;
-    border-radius: 10px;
-}
-
-
-#view
-{
-    width: 100px;
-    margin: 10px;
+    width: 480px;
     background-color: #dae5ef;
     border-radius: 10px;
 }

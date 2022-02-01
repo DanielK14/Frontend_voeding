@@ -6,22 +6,17 @@ const combo3 = document.getElementById('product-combo3');
 const combo4 = document.getElementById('product-combo4');
 const combo5 = document.getElementById('product-combo5');
 
-let productList =[];
-let weightList =[];
-
 let individueelProduct = false;
 
 let combos = [];
 
-let newObject = {Name:"Nieuw gerecht", omschrijving:"",
-   Ingredient1Id:0, Weight1:0, 
-   Ingredient2Id:0, Weight2:0, 
-   Ingredient3Id:0, Weight3:0, 
-   Ingredient4Id:0, Weight4:0,
-   Ingredient5Id:0, Weight5:0
+let newObject = {Naam:"Nieuw gerecht", omschrijving:"",
+   Product1Id:0, Weight1:0, 
+   Product2Id:0, Weight2:0, 
+   Product3Id:0, Weight3:0, 
+   Product4Id:0, Weight4:0,
+   Product5Id:0, Weight5:0
   }
-
-let newObjectNutrients = {  energieKcal:0, energieKj:0, water:0, eiwit:0, koolhydraten:0, suikers:0, vet:0, verzadigdVet:0, enkelvoudigVerzadigd:0, meervoudigVerzadigd:0, cholesterol:0, voedingsVezels:0,alcohol:0}
 
 async function FetchIngredients ()
 {
@@ -138,61 +133,101 @@ function FetchIngredient5()
     individueelProduct = !individueelProduct;
   }
 }
-async function GetAllNutrients()
+function CollectAllNutrients()
 {
-    // Tries to connect to the database with the clients
-    fetch("https://localhost:44309/api/gerechten/GetAll/",{
-    "ProductenLijst":productList,
-    "WeightWaardenLijst":weightList
-    })
-   .then(response => response.json())
-   .then(data => {
-    //object2 = data[Object.keys(data)];
-    productList[productNumber] = data;
-    weightList[productNumber] = GetWeight(productNumber);
-    RenderNutrients(data, productNumber);
-    })
-   .catch(err => {document.getElementById("nutrients"). innerHTML = 'Geen nutrients gevonden'});
+  ResetNutrientsField();
+  SaveNutrients();
 }
+
+async function SaveNutrients()
+{
+  if(!EnoughInformation())
+    return;
+    
+    // Tries to connect to the database with the clients
+    fetch("https://localhost:44309/api/gerecht/Totalen/", {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newObject)
+    })
+    .then(response => response.json())
+    .then(FetchNutrients(document.getElementById("Name").value, 1))
+   .catch(err => {document.getElementById("nutrients"). innerHTML = 'Er is iets fout gegaan bij het berekenen'});
+} 
 
 async function FetchNutrients(target, productNumber){
   // Tries to connect to the database with the clients
   fetch("https://localhost:44309/api/voedingswaarden/findbyname/" + target)
  .then(response => response.json())
  .then(data => {
-   //object2 = data[Object.keys(data)];
-  productList[productNumber] = data;
-  weightList[productNumber] = GetWeight(productNumber);
-  RenderNutrients(data, productNumber);
+  SetProduct(data, productNumber);
+  RenderNutrients(data, SetWeight(productNumber));
+  //object2 = data[Object.keys(data)];
   })
  .catch(err => {document.getElementById("nutrients"). innerHTML = 'Geen nutrients gevonden'});
 }
 
-function GetWeight(productNumber)
+function SetWeight(productNumber)
 {
   switch(productNumber)
   {
     case 0:
-      return document.getElementById('weight1').value;
+      return FixWeight(document.getElementById('weight1').value);
       
     case 1:
-      return document.getElementById('weight2').value;
+      return FixWeight(document.getElementById('weight2').value);
 
     case 2:
-      return document.getElementById('weight3').value;
+      return FixWeight(document.getElementById('weight3').value);
       
     case 3:
-      return document.getElementById('weight4').value;
+      return FixWeight(document.getElementById('weight4').value);
       
     case 4:
-      return document.getElementById('weight5').value;
+      return FixWeight(document.getElementById('weight5').value);
   }
 }
 
-function RenderNutrients(dataObject, totalWeight)  
+function SetProduct(object, productNumber)
 {
-  let weight = weightList[totalWeight];
-  weight = parseInt(weight + 0);
+  switch(productNumber)
+  {
+    case 0:
+      newObject.Product1Id = object.id;
+      newObject.Weight1 = SetWeight(productNumber);
+      break;
+      
+    case 1:
+      newObject.Product2Id = object.id;
+      newObject.Weight2 = SetWeight(productNumber);
+      break;
+
+    case 2:
+      newObject.Product3Id = object.id;
+      newObject.Weight3 = SetWeight(productNumber);
+      break;
+      
+    case 3:
+      newObject.Product4Id = object.id;
+      newObject.Weight4 = SetWeight(productNumber);
+      break;
+      
+    case 4:
+      newObject.product5Id = object.id;
+      newObject.Weight5 = SetWeight(productNumber);
+      break;
+  }
+}
+
+function RenderNutrients(dataObject, weight)  
+{ 
+  if(dataObject == null)
+  {
+    console.log("dataobject is null")
+    return;
+  }
   document.getElementById('nutrients').innerHTML = 
   '<p>Dit zijn de nutrients van ' + dataObject.name + '.</p>' +
    'Energie: '+ dataObject.energieKcal *  weight + ' kcal</br>' +
@@ -212,7 +247,11 @@ function RenderNutrients(dataObject, totalWeight)
 
 function ResetNutrientsField()
 {
-
+  if(document.getElementById("Name").value != "" && document.getElementById("Name").value != null)
+    newObject.Naam = document.getElementById("Name").value;
+  
+  if(document.getElementById("Description").value != "")
+    newObject.omschrijving = document.getElementById("Description").value;
 }
 
 function ResetViewButtons()
@@ -222,6 +261,48 @@ function ResetViewButtons()
   product3field.innerText = '>';
   product4field.innerText = '>';
   product5field.innerText = '>';
+}
+
+function FixWeight(input)
+{
+  let weight = parseInt(input)
+  if(!Number.isInteger(weight))
+  {
+    weight = 0;
+  }
+  if(weight < 0)
+  {
+    weight = -weight;
+  }
+  return weight;
+}
+
+function EnoughInformation()
+{
+  console.log("checking");
+  let msg = "Vul de volgende velden in: \n"
+  let fellthrough = true;
+  if(document.getElementById("Name").value == "" || document.getElementById("Name").value == null)
+  {
+    msg += "Naam  \n";
+    fellthrough = false;
+  }
+  if(combo.value == "" || document.getElementById('weight1').value == null || document.getElementById('weight1').value == "")
+  {
+    msg+= "Product 1 met bijpassend gewicht \n";
+    fellthrough= false; 
+  }
+  if(combo2.value == "" || document.getElementById('weight2').value == null ||  document.getElementById('weight2').value == "")
+  {
+    msg+= "Product 2 met bijpassend gewicht \n";
+    fellthrough= false;
+  }
+  if(!fellthrough)
+    {
+      alert(msg);
+    }
+
+  return fellthrough;
 }
 
 const product1field = document.getElementById('product1field');
@@ -236,17 +317,9 @@ const product5field = document.getElementById('product5field');
 product5field.addEventListener('click',  FetchIngredient5);
 
 const submit = document.getElementById('submit');
-submit.addEventListener('click', SendInformationToDatabase);
-
-const view = document.getElementById('view');
-view.addEventListener('click', GetAllNutrients);
-
-//ResetNutrientsField();
+submit.addEventListener('click', CollectAllNutrients);
+ResetNutrientsField();
 FetchIngredients();
-
-
-
-
 
 /*  Graveyard: here lie the obsolete functions for reference:
 
