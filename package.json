@@ -19,7 +19,8 @@
   "homepage": "https://github.com/DanielK14/Frontend_voeding#readme",
   "dependencies": {
     "@vaadin/vaadin-combo-box": "^22.0.3",
-    "@web/dev-server": "^0.1.29"
+    "@web/dev-server": "^0.1.29",
+    "es6-promise": "^4.2.8"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
